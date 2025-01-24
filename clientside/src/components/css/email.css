@@ -1,0 +1,129 @@
+.email-verification-section {
+  padding: 2.5rem 0;
+  background-color: #e6fffa;
+}
+
+.container {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header {
+  text-align: center;
+}
+
+.header h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #065f46;
+}
+
+.header p {
+  max-width: 30rem;
+  margin: 1rem auto;
+  color: #319795;
+  font-size: 1rem;
+}
+
+.form-container {
+  margin-top: 2rem;
+  max-width: 25rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-card {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-content {
+  padding: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #065f46;
+  margin-bottom: 0.5rem;
+}
+
+.input-group {
+  position: relative;
+}
+
+.icon-container {
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #319795;
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+  font-size: 1rem;
+  color: #1a202c;
+  background-color: #ffffff;
+  border: 1px solid #bee3f8;
+  border-radius: 0.375rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-field:focus {
+  border-color: #38b2ac;
+}
+
+.select-field {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  color: #1a202c;
+  background-color: #ffffff;
+  border: 1px solid #bee3f8;
+  border-radius: 0.375rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.select-field:focus {
+  border-color: #38b2ac;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #319795;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+  background-color: #2c7a7b;
+}
+
+.error-text {
+  color: #e53e3e;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}

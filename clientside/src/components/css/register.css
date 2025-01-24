@@ -1,0 +1,106 @@
+/* General Container Styling */
+.signup-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0f7fa;
+}
+
+/* Form Card */
+.signup-form-card {
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 28rem;
+}
+
+/* Heading */
+.signup-form-card h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00897b;
+  text-align: center;
+}
+
+.signup-form-card p {
+  color: #607d8b;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* Input Fields */
+.input-field {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #00897b;
+}
+
+.input-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: medium;
+  color: #4f4f4f;
+}
+
+/* File Input Styling */
+.file-input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Error Message */
+.error-message {
+  color: #e57373;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Submit Button */
+.submit-button {
+  width: 100%;
+  background-color: #00897b;
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: medium;
+  font-size: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #00796b;
+}
+
+/* Toast Container (Toastify) */
+.toast-container {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Other Responsive Adjustments */
+@media (max-width: 640px) {
+  .signup-form-card {
+    padding: 1rem;
+  }
+}
