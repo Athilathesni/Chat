@@ -55,378 +55,256 @@ export async function signIn(req,res){
         return res.status(400).send(error) 
    }  
 }
-
-// export async function checkEmail(req, res) {
-//   try {
-//       const { email, type } = req.body; // Expecting 'type' to be either 'signup' or 'forgot-password'
-
-//       let subject, htmlContent, buttonText, buttonUrl;
-
-//       // Logic to handle different email types
-//       if (type === 'signup') {
-//           subject = "EMAIL VERIFICATION";
-//           buttonText = "Verify Your Account";
-//           buttonUrl = "http://localhost:5173/signup";
-//           htmlContent = `
-//              <html lang="en">
-// <head>
-//   <meta charset="UTF-8" />
-//   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-//   <title>Email Verification</title>
-//   <style>
-//     body {
-//       font-family: Arial, sans-serif;
-//       margin: 0;
-//       padding: 0;
-//       background-color: #f4f4f4;
-//       color: #333;
-//     }
-
-//     .email-container {
-//       width: 100%;
-//       max-width: 600px;
-//       margin: 20px auto;
-//       background-color: #ffffff;
-//       border: 1px solid #e0e0e0;
-//       padding: 30px;
-//       border-radius: 10px;
-//       text-align: center;
-//       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-//     }
-
-//     .email-header {
-//       margin-bottom: 20px;
-//     }
-
-//     .email-header img {
-//       width: 80px;
-//       height: auto;
-//     }
-
-//     .email-header h1 {
-//       font-size: 24px;
-//       color: #2c7a7b;
-//       margin: 10px 0 0;
-//     }
-
-//     .email-body {
-//       margin: 20px 0;
-//       font-size: 16px;
-//       line-height: 1.6;
-//       color: #555555;
-//     }
-
-//     .btn {
-//       display: inline-block;
-//       background-color: #38b2ac;
-//       color: #ffffff !important;
-//       text-decoration: none;
-//       padding: 15px 30px;
-//       margin-top: 20px;
-//       border-radius: 8px;
-//       font-size: 18px;
-//       font-weight: bold;
-//       transition: background-color 0.3s ease, box-shadow 0.3s ease;
-//     }
-
-//     .btn:hover {
-//       background-color: #2c7a7b;
-//       box-shadow: 0 4px 10px rgba(56, 178, 172, 0.4);
-//     }
-
-//     .footer {
-//       margin-top: 30px;
-//       font-size: 12px;
-//       color: #999999;
-//     }
-
-//     .footer a {
-//       color: #38b2ac;
-//       text-decoration: none;
-//     }
-
-//     .footer a:hover {
-//       text-decoration: underline;
-//     }
-//   </style>
-// </head>
-// <body>
-//   <div class="email-container">
-//     <!-- Header -->
-//     <div class="email-header">
-//       <h1>Email Verification</h1>
-//     </div>
-
-//     <!-- Body -->
-//     <div class="email-body">
-//       <p>Hello,</p>
-//       <p>
-//         Thank you for signing up with us! To complete your registration,
-//         please verify your email address by clicking the button below:
-//       </p>
-//       <a href="${buttonUrl}" class="btn">Verify Email</a>
-//       <p>If you did not request this, please ignore this email.</p>
-//     </div>
-
-  
-//   </div>
-// </body>
-// </html>
-
-//           `;
-//       } else if (type === 'forgot-password') {
-//           subject = "RESET PASSWORD";
-//           buttonText = "Reset Your Password";
-//           buttonUrl = "http://localhost:5173/confirmpassword"; // You may want to replace this with a dynamic reset link
-//           htmlContent = `
-//              <html lang="en">
-// <head>
-//   <meta charset="UTF-8" />
-//   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-//   <title>RESET PASSWORD</title>
-//   <style>
-//     body {
-//       font-family: Arial, sans-serif;
-//       margin: 0;
-//       padding: 0;
-//       background-color: #f4f4f4;
-//       color: #333;
-//     }
-
-//     .email-container {
-//       width: 100%;
-//       max-width: 600px;
-//       margin: 20px auto;
-//       background-color: #ffffff;
-//       border: 1px solid #e0e0e0;
-//       padding: 30px;
-//       border-radius: 10px;
-//       text-align: center;
-//       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-//     }
-
-//     .email-header {
-//       margin-bottom: 20px;
-//     }
-
-//     .email-header img {
-//       width: 80px;
-//       height: auto;
-//     }
-
-//     .email-header h1 {
-//       font-size: 24px;
-//       color: #2c7a7b;
-//       margin: 10px 0 0;
-//     }
-
-//     .email-body {
-//       margin: 20px 0;
-//       font-size: 16px;
-//       line-height: 1.6;
-//       color: #555555;
-//     }
-
-//     .btn {
-//       display: inline-block;
-//       background-color: #38b2ac;
-//       color: #ffffff !important;
-//       text-decoration: none;
-//       padding: 15px 30px;
-//       margin-top: 20px;
-//       border-radius: 8px;
-//       font-size: 18px;
-//       font-weight: bold;
-//       transition: background-color 0.3s ease, box-shadow 0.3s ease;
-//     }
-//       a{
-//        color: #ffffff;
-//       text-decoration: none;
-//       }
-
-//     .btn:hover {
-//       background-color: #2c7a7b;
-//       box-shadow: 0 4px 10px rgba(56, 178, 172, 0.4);
-//     }
-
-//     .footer {
-//       margin-top: 30px;
-//       font-size: 12px;
-//       color: #999999;
-//     }
-
-//     .footer a {
-//       color: #38b2ac;
-//       text-decoration: none;
-//     }
-
-//     .footer a:hover {
-//       text-decoration: underline;
-//     }
-//   </style>
-// </head>
-// <body>
-//   <div class="email-container">
-//     <!-- Header -->
-//     <div class="email-header">
-     
-//       <h1>RESET PASSWORD</h1>
-//     </div>
-
-//     <!-- Body -->
-//     <div class="email-body">
-//       <p>Hello,</p>
-//       <p>
-//         If you requested a password reset, please click the button below to reset your password.
-//       </p>
-//       <a href="${buttonUrl}" class="btn">Verify Email</a>
-//       <p>If you did not request this, please ignore this email.</p>
-//     </div>
-
-  
-//   </div>
-// </body>
-// </html>
-
-//           `;
-//       } else {
-//           return res.status(400).send({ msg: "Invalid request type" });
-//       }
-
-//       // Send the email using the transporter
-//       const info = await transporter.sendMail({
-//           from: 'usmanchusman606@gmail.com',
-//           to: email, // list of receivers
-//           subject: subject,
-//           text: "Please verify your action.",
-//           html: htmlContent, // html body
-//       });
-
-//       res.status(200).send({ msg: `${type.charAt(0).toUpperCase() + type.slice(1)} email sent successfully` });
-
-//   } catch (error) {
-//       return res.status(400).send(error);
-//   }
-// }
-
-
-
 export async function checkEmail(req, res) {
   try {
-    const { email } = req.body; // Only expecting the email from the request body
+      const { email, type } = req.body; // Expecting 'type' to be either 'signup' or 'forgot-password'
 
-    // Email verification details
-    const subject = "EMAIL VERIFICATION";
-    const buttonUrl = "http://localhost:5174/signup";
-    const htmlContent = `
-      <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Email Verification</title>
-        <style>
-          body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-          }
+      let subject, htmlContent, buttonText, buttonUrl;
 
-          .email-container {
-            width: 100%;
-            max-width: 600px;
-            margin: 20px auto;
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          }
+      // Logic to handle different email types
+      if (type === 'signup') {
+          subject = "EMAIL VERIFICATION";
+          buttonText = "Verify Your Account";
+          buttonUrl = "http://localhost:5173/signup";
+          htmlContent = `
+             <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email Verification</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
 
-          .email-header {
-            margin-bottom: 20px;
-          }
+    .email-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-          .email-header h1 {
-            font-size: 24px;
-            color: #2c7a7b;
-            margin: 10px 0 0;
-          }
+    .email-header {
+      margin-bottom: 20px;
+    }
 
-          .email-body {
-            margin: 20px 0;
-            font-size: 16px;
-            line-height: 1.6;
-            color: #555555;
-          }
+    .email-header img {
+      width: 80px;
+      height: auto;
+    }
 
-          .btn {
-            display: inline-block;
-            background-color: #38b2ac;
-            color: #ffffff !important;
-            text-decoration: none;
-            padding: 15px 30px;
-            margin-top: 20px;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-          }
+    .email-header h1 {
+      font-size: 24px;
+      color: #2c7a7b;
+      margin: 10px 0 0;
+    }
 
-          .btn:hover {
-            background-color: #2c7a7b;
-            box-shadow: 0 4px 10px rgba(56, 178, 172, 0.4);
-          }
+    .email-body {
+      margin: 20px 0;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #555555;
+    }
 
-          .footer {
-            margin-top: 30px;
-            font-size: 12px;
-            color: #999999;
-          }
+    .btn {
+      display: inline-block;
+      background-color: #38b2ac;
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 15px 30px;
+      margin-top: 20px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
 
-          .footer a {
-            color: #38b2ac;
-            text-decoration: none;
-          }
+    .btn:hover {
+      background-color: #2c7a7b;
+      box-shadow: 0 4px 10px rgba(56, 178, 172, 0.4);
+    }
 
-          .footer a:hover {
-            text-decoration: underline;
-          }
-        </style>
-      </head>
-      <body>
-        <div class="email-container">
-          <div class="email-header">
-            <h1>Email Verification</h1>
-          </div>
-          <div class="email-body">
-            <p>Hello,</p>
-            <p>
-              Thank you for signing up with us! To complete your registration,
-              please verify your email address by clicking the button below:
-            </p>
-            <a href="${buttonUrl}" class="btn">Verify Email</a>
-            <p>If you did not request this, please ignore this email.</p>
-          </div>
-        </div>
-      </body>
-      </html>
-    `;
+    .footer {
+      margin-top: 30px;
+      font-size: 12px;
+      color: #999999;
+    }
 
-    // Send the email using the transporter
-    const info = await transporter.sendMail({
-      from: 'usmanchusman606@gmail.com',
-      to: email, // List of receivers
-      subject: subject,
-      text: "Please verify your action.",
-      html: htmlContent, // HTML body
-    });
+    .footer a {
+      color: #38b2ac;
+      text-decoration: none;
+    }
 
-    res.status(200).send({ msg: "Email verification sent successfully" });
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <!-- Header -->
+    <div class="email-header">
+      <h1>Email Verification</h1>
+    </div>
+
+    <!-- Body -->
+    <div class="email-body">
+      <p>Hello,</p>
+      <p>
+        Thank you for signing up with us! To complete your registration,
+        please verify your email address by clicking the button below:
+      </p>
+      <a href="${buttonUrl}" class="btn">Verify Email</a>
+      <p>If you did not request this, please ignore this email.</p>
+    </div>
+
+  
+  </div>
+</body>
+</html>
+
+          `;
+      } else if (type === 'forgot-password') {
+          subject = "RESET PASSWORD";
+          buttonText = "Reset Your Password";
+          buttonUrl = "http://localhost:5173/confirmpassword"; // You may want to replace this with a dynamic reset link
+          htmlContent = `
+             <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RESET PASSWORD</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .email-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .email-header {
+      margin-bottom: 20px;
+    }
+
+    .email-header img {
+      width: 80px;
+      height: auto;
+    }
+
+    .email-header h1 {
+      font-size: 24px;
+      color: #2c7a7b;
+      margin: 10px 0 0;
+    }
+
+    .email-body {
+      margin: 20px 0;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #555555;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #38b2ac;
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 15px 30px;
+      margin-top: 20px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+      a{
+       color: #ffffff;
+      text-decoration: none;
+      }
+
+    .btn:hover {
+      background-color: #2c7a7b;
+      box-shadow: 0 4px 10px rgba(56, 178, 172, 0.4);
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 12px;
+      color: #999999;
+    }
+
+    .footer a {
+      color: #38b2ac;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <!-- Header -->
+    <div class="email-header">
+     
+      <h1>RESET PASSWORD</h1>
+    </div>
+
+    <!-- Body -->
+    <div class="email-body">
+      <p>Hello,</p>
+      <p>
+        If you requested a password reset, please click the button below to reset your password.
+      </p>
+      <a href="${buttonUrl}" class="btn">Verify Email</a>
+      <p>If you did not request this, please ignore this email.</p>
+    </div>
+
+  
+  </div>
+</body>
+</html>
+
+          `;
+      } else {
+          return res.status(400).send({ msg: "Invalid request type" });
+      }
+
+      // Send the email using the transporter
+      const info = await transporter.sendMail({
+          from: 'usmanchusman606@gmail.com.com',
+          to: email, // list of receivers
+          subject: subject,
+          text: "Please verify your action.",
+          html: htmlContent, // html body
+      });
+
+      res.status(200).send({ msg: `${type.charAt(0).toUpperCase() + type.slice(1)} email sent successfully` });
+
   } catch (error) {
-    return res.status(404).send(error);
+      return res.status(400).send(error);
   }
 }
 
