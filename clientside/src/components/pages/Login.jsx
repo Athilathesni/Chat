@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import Api from "../Api";
-import "../css/login.css"; // Import the external CSS file
+import "../css/login.css"; // Import the CSS file
 
 const Login = () => {
   const navigate = useNavigate();
@@ -84,15 +84,15 @@ const Login = () => {
             Log In
           </button>
         </form>
-        <div className="signin-footer">
-          <Link to="/email" className="signin-link">
+        <div className="signin-links">
+          <Link to="/email" className="forgot-password">
             Forgot your password?
           </Link>
         </div>
-        <div className="signin-footer">
-          <p className="signup-text">
+        <div className="signup-link">
+          <p>
             Don't have an account?{" "}
-            <Link to="/email" className="signup-link">
+            <Link to="/email" className="signup-cta">
               Sign Up
             </Link>
           </p>

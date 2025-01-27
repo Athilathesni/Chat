@@ -1,242 +1,302 @@
-/* Home Container */
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #beb9b9;
+  color: #333;
+}
+
 .home-container {
-    display: flex;
-    height: 100vh;
-  }
-  
-  /* Sidebar */
-  .sidebar {
-    width: 70px;
-    background-color: #075e54;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px 0;
-  }
-  
-  .nav-links {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .nav-button {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    width: 100%;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 18px;
-    text-align: center;
-    cursor: pointer;
-  }
-  
-  .nav-button:hover {
-    background-color: #128c7e;
-  }
-  
-  .nav-icon {
-    margin-right: 10px;
-  }
-  
-  /* Main Content */
-  .main-content {
-    flex: 1;
-    padding: 20px;
-    background-color: #f1f1f1;
-  }
-  
-  /* Page Title */
-  .page-title {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  /* Search Container */
-  .search-container {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    padding: 10px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .search-input {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 20px;
-    margin-right: 10px;
-  }
-  
-  .search-icon {
-    color: #888;
-    font-size: 18px;
-  }
-  
-  /* Contacts Grid */
-  .contacts-grid {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .contact-card {
-    display: flex;
-    justify-content: space-between;
-    background-color: white;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-  }
-  
-  .contact-info {
-    display: flex;
-    align-items: center;
-  }
-  
-  .contact-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .contact-details {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .contact-username {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .contact-last-message {
-    font-size: 14px;
-    color: #888;
-  }
-  
-  .contact-time {
-    text-align: right;
-  }
-  
-  .message-time {
-    font-size: 12px;
-    color: #888;
-  }
-  
-  .unread-count {
-    display: inline-block;
-    background-color: #25d366;
-    color: white;
-    border-radius: 50%;
-    padding: 5px;
-    font-size: 12px;
-  }
-  
-  /* New Chat Button */
-  .new-chat-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #25d366;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    padding: 15px;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-  }
-  
-  .new-chat-icon {
-    font-size: 24px;
-  }
-  
-  /* Profile Section */
-  .profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .profile-image {
-    position: relative;
-    margin-bottom: 20px;
-  }
-  
-  .profile-image img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-  }
-  
-  .profile-edit-label {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: #25d366;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  
-  .edit-icon {
-    color: white;
-    font-size: 20px;
-  }
-  
-  .profile-actions {
-    margin-top: 20px;
-  }
-  
-  .edit-button, .save-button {
-    background-color: #25d366;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .edit-button:hover, .save-button:hover {
-    background-color: #128c7e;
-  }
-  
-  /* Profile Form */
-  .input-group {
-    margin-bottom: 15px;
-    width: 100%;
-  }
-  
-  .input-group label {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 5px;
-  }
-  
-  .input-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 14px;
-    color: #333;
-    background-color: #f9f9f9;
-  }
-  
-  .input-group input:disabled {
-    background-color: #e0e0e0;
-  }
-  
+  display: flex;
+  height: 100vh;
+}
+
+/* .sidebar {
+  width: 180px;
+  background-color: #008080;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.nav-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+} */
+
+/* Sidebar styles */
+.sidebar {
+  width: 110px;
+  background-color: #008080;
+  color: white;
+  display: flex;
+  flex-direction: column; /* Stack the nav items vertically */
+  justify-content: flex-start; /* Align items to the start */
+  padding: 20px 0;
+  text-align: center;
+  height: 100%;
+}
+
+.nav-links {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  gap: 20px; /* Adds space between the items */
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-button:hover {
+  color: #00b3b3; /* Change color on hover */
+}
+
+.nav-icon {
+  font-size: 25px;
+  margin-bottom: 10px; /* Space between icon and text */
+}
+
+/* Ensure the sidebar takes full height */
+.home-container {
+  display: flex;
+  height: 100vh;
+  flex-direction: row;
+}
+
+
+.nav-button:hover {
+  color: #00b3b3;
+}
+
+.nav-icon {
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  background-color: rgb(14, 12, 12);
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Chat list styles */
+.page-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.contacts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.infde {
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact-card {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1d1b1b;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.contact-card:hover {
+  transform: scale(1.02);
+}
+
+.contact-info {
+  display: flex;
+  gap: 10px;
+}
+
+.contact-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-username {
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+}
+
+.contact-last-message {
+  font-size: 14px;
+  color: #888;
+}
+
+.contact-time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+}
+
+.message-time {
+  font-size: 12px;
+  color: #666;
+}
+
+.unread-count {
+  background-color: #25d366;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Button for new chat */
+.new-chat-button {
+  background-color: #25d366;
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.new-chat-icon {
+  font-size: 30px;
+}
+
+/* Profile page styles */
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.profile-edit-label {
+  position: relative;
+  cursor: pointer;
+  background-color: #008080;
+  border-radius: 50%;
+  padding: 10px;
+  display: inline-block;
+  margin-top: -30px;
+  color: white;
+}
+
+.profile-file-input {
+  display: none;
+}
+
+.account-details {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.profile-actions {
+  margin-top: 30px;
+}
+
+.edit-button,
+.save-button {
+  background-color: #008080;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-button:hover,
+.save-button:hover {
+  background-color: #00b3b3;
+}
+
+/* Search input */
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #00b3b3;
+}

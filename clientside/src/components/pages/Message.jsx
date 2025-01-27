@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { FaArrowLeft, FaEllipsisV, FaTrashAlt } from "react-icons/fa";
 import { useNavigate, useParams, Link } from "react-router-dom";
@@ -13,6 +14,8 @@ const Message = ({ setUser }) => {
   const [messages, setMessages] = useState([]); 
   const [uid, setUid] = useState('');
   const [showDeleteMenu, setShowDeleteMenu] = useState(false); 
+  const [showOptionsMenu, setShowOptionsMenu] = useState(false);  // State for the new menu
+  const [deleteMenuMessageId, setDeleteMenuMessageId] = useState(null);
   const token = localStorage.getItem("Token");
   const { _id } = useParams();
 
@@ -60,8 +63,6 @@ const Message = ({ setUser }) => {
     }
   };
 
-  const [deleteMenuMessageId, setDeleteMenuMessageId] = useState(null);
-
   const toggleDeleteMenu = (messageId) => {
     setDeleteMenuMessageId(deleteMenuMessageId === messageId ? null : messageId);
   };
@@ -78,6 +79,23 @@ const Message = ({ setUser }) => {
     }
   };
 
+  const handleClearChat = async () => {
+    try {
+      await axios.delete(`${Api()}/clearchat/${_id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setMessages([]);
+      setShowOptionsMenu(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSearch = () => {
+    // Implement search functionality here if needed
+    console.log("Search triggered");
+  };
+
   return (
     <div className="chat-container">
       <div className="chat-header">
@@ -85,17 +103,37 @@ const Message = ({ setUser }) => {
           onClick={() => navigate("/")}
           className="back-button"
         >
-          <FaArrowLeft size={20} />
+          <FaArrowLeft size={10} />
         </button>
-        <Link to={`/userprofile/${receiver._id}`} className="profile-container">
+        <Link to={`/userprofile/${receiver._id}`} className="profile-container1">
           <div className="avatar">
             <img
+              className="avpro"
               src={receiver.profile}
               alt="User Avatar"
             />
           </div>
           <h2>{receiver.username}</h2>
         </Link>
+        {/* Three dots menu for options */}
+        <div className="menu">
+          <button onClick={() => setShowOptionsMenu(!showOptionsMenu)}>
+            <FaEllipsisV size={15} />
+          </button>
+          {showOptionsMenu && (
+            <div className="options-menu">
+              <button onClick={() => navigate(`/userprofile/${receiver._id}`)}>
+                View Contact
+              </button>
+              <button onClick={handleClearChat}>
+                Clear Chat
+              </button>
+              <button onClick={handleSearch}>
+                Search
+              </button>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="chat-messages">
@@ -106,6 +144,7 @@ const Message = ({ setUser }) => {
           >
             <div className="avatar">
               <img
+                className="img11"
                 src={msg.senderId === uid ? sender.profile : receiver.profile}
                 alt="Avatar"
               />
@@ -150,5 +189,3 @@ const Message = ({ setUser }) => {
 };
 
 export default Message;
-
-

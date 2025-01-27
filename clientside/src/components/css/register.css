@@ -1,122 +1,82 @@
-/* General Styles */
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: Arial, sans-serif;
-  background-color: #e6f7f5;
-}
-
-.h-screen {
+.signup-section {
   height: 100vh;
-}
-
-.flex {
   display: flex;
-}
-
-.items-center {
-  align-items: center;
-}
-
-.justify-center {
   justify-content: center;
+  align-items: center;
+  background-color: #e6f7f7;
 }
 
-/* Card Container */
-.card-container {
-  background-color: #ffffff;
+.signup-container {
+  background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  padding: 32px;
+  border-radius: 10px;
+  padding: 2rem;
   width: 100%;
   max-width: 400px;
 }
 
-/* Headings */
-.text-2xl {
+.signup-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #0f766e;
+  color: #005555;
   text-align: center;
 }
 
-.text-gray {
-  color: #4b5563;
+.signup-subtitle {
   text-align: center;
-  margin-top: 8px;
+  color: #666666;
+  margin-top: 0.5rem;
 }
 
-/* Form Styles */
-.form {
-  margin-top: 24px;
+.signup-form {
+  margin-top: 1.5rem;
 }
 
 .form-group {
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 
-.label {
+.form-label {
   display: block;
   font-size: 0.875rem;
-  font-weight: 500;
-  color: #374151;
-  margin-bottom: 4px;
+  color: #333333;
+  margin-bottom: 0.5rem;
 }
 
-.input {
+.form-input {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
-  color: #1f2937;
+  padding: 0.75rem;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
   font-size: 1rem;
+  color: #333333;
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.3s ease;
 }
 
-.input:focus {
-  border-color: #0f766e;
-  box-shadow: 0 0 0 2px rgba(15, 118, 110, 0.3);
+.form-input:focus {
+  border-color: #009688;
 }
 
-/* Error Message */
-.error-message {
-  color: #ef4444;
+.error-text {
+  color: #ff5252;
   font-size: 0.875rem;
-  margin-top: 4px;
+  margin-top: 0.25rem;
 }
 
-/* Button Styles */
-.btn-submit {
+.signup-button {
   width: 100%;
-  background-color: #0f766e;
-  color: #ffffff;
-  padding: 12px;
-  border-radius: 8px;
-  font-weight: 500;
-  font-size: 1rem;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 0.2s;
+  background-color: #009688;
+  color: white;
+  padding: 0.75rem;
   border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: medium;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.btn-submit:hover {
-  background-color: #0d665d;
-}
-
-/* Profile Picture Input */
-.input-file {
-  padding: 0;
-}
-
-/* Toastify Container */
-.toast-container {
-  position: fixed;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
+.signup-button:hover {
+  background-color: #00796b;
 }
