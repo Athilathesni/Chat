@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
 import Register from './components/pages/Register'
 import Login from './components/pages/Login'
@@ -9,11 +10,14 @@ import Nav from './components/pages/Nav'
 import { useState } from 'react'
 import Message from './components/pages/Message'
 import Profile from './components/pages/Profile'
+import Settings from './components/pages/Settings';
+
 
 function App() {
   const [user,setUser]=useState("")
-
+ 
   return (
+   
     <BrowserRouter>
     {user &&<Nav  user={user} setUser={setUser} />}
       <Routes>
@@ -25,8 +29,10 @@ function App() {
           <Route path='/contacts' element={<Contact setUser={setUser} />}/>
           <Route path='/chat/:_id' element={<Message setUser={setUser} />}/>
           <Route path='/userprofile/:_id' element={<Profile setUser={setUser} />}/>
+          <Route path="/settings" element={<Settings />} />
       </Routes>
     </BrowserRouter>
+    
   )
 }
 

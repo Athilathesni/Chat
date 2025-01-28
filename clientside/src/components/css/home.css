@@ -16,49 +16,39 @@ body {
   height: 100vh;
 }
 
-/* .sidebar {
-  width: 180px;
-  background-color: #008080;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px 0;
-  text-align: center;
-}
-
-.nav-links {
-  list-style-type: none;
-  padding: 0;
-}
-
-.nav-button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 20px;
-  margin-bottom: 20px;
-  cursor: pointer;
-} */
 
 /* Sidebar styles */
 .sidebar {
-  width: 110px;
-  background-color: #008080;
+  width: 84.5pc;
+  background-color: #212222;
   color: white;
-  display: flex;
-  flex-direction: column; /* Stack the nav items vertically */
-  justify-content: flex-start; /* Align items to the start */
-  padding: 20px 0;
   text-align: center;
-  height: 100%;
+  height: 30px;
 }
-
+.search-container3{
+  margin-left: -10px;
+}
+.search-input3{
+  width: 500px;
+  height: 20px;
+  border: none;
+  margin-top: 2px;
+  border-radius: 3px;
+  outline: none;
+}
+.search-iconsn{
+  font-size: 15px;
+  color: black;
+  margin-left: -16px;
+  margin-top: 3px;
+}
 .nav-links {
+  display: flex;
+  float: right;
+  margin-top: -15px;
+  margin-right: 20px;
   list-style-type: none;
   padding: 0;
-  display: flex;
-  flex-direction: column; /* Stack items vertically */
   gap: 20px; /* Adds space between the items */
 }
 
@@ -66,7 +56,7 @@ body {
   background: none;
   border: none;
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   cursor: pointer;
   transition: color 0.3s ease;
 }
@@ -75,16 +65,16 @@ body {
   color: #00b3b3; /* Change color on hover */
 }
 
-.nav-icon {
-  font-size: 25px;
-  margin-bottom: 10px; /* Space between icon and text */
+.nav-icont {
+  font-size: 10px;
+  margin-right:5px; /* Space between icon and text */
 }
 
 /* Ensure the sidebar takes full height */
 .home-container {
   display: flex;
   height: 100vh;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 
