@@ -1,12 +1,12 @@
 import userSchema from './model/user.js'
 import chatMemberSchema from './model/Chat.js'
 import messageSchema from './model/Message.js'
-
+import CryptoJS from "crypto-js";
 import bcrypt from "bcrypt"
 import jwt from 'jsonwebtoken'
 import nodemailer from 'nodemailer'
 const {sign}= jwt
-
+const SECRET_KEY = "your_secret_key";
 const transporter = nodemailer.createTransport({
   service:"gmail",
   auth: {
@@ -476,35 +476,120 @@ export async function getContact(req,res) {
     
 }
 
-export async function addMessage(req,res) {
-    try {
-        const {rid}=req.params;
-        const sid=req.user;
-        const {message,date,time}=req.body;
-        const chatmember=await chatMemberSchema.findOne({senderId:sid,receiverId:rid});
-        if(!chatmember)
-           await chatMemberSchema.create({senderId:sid,receiverId:rid})
-        const chats=await messageSchema.create({senderId:sid,receiverId:rid,message,date,time});
-        return res.status(201).send({msg:"success"});
-    } catch (error) {
-        console.log(error);
+// export async function addMessage(req,res) {
+//     try {
+//         const {rid}=req.params;
+//         const sid=req.user;
+//         const {message,date,time}=req.body;
+//         const chatmember=await chatMemberSchema.findOne({senderId:sid,receiverId:rid});
+//         if(!chatmember)
+//            await chatMemberSchema.create({senderId:sid,receiverId:rid})
+//         const chats=await messageSchema.create({senderId:sid,receiverId:rid,message,date,time});
+//         return res.status(201).send({msg:"success"});
+//     } catch (error) {
+//         console.log(error);
         
-        return res.status(404).send({msg:"error"})
-    }
+//         return res.status(404).send({msg:"error"})
+//     }
+// }
+
+// export async function deleteMessage(req,res) {
+//     try {
+//         const {_id}=req.params;
+//         const senderId=req.user;
+//         const msg=await messageSchema.findOne({_id,senderId});
+        
+//         if(!msg)
+//            return res.status(404).send({msg:"Cannot delete others message"});
+//         const deletemessage=await messageSchema.deleteOne({$and:[{_id},{senderId}]})
+//         return res.status(201).send({msg:"Success"});
+//     } catch (error) {
+//         return res.status(404).send({msg:"Error"})
+//     }
+// }
+
+
+// Encrypt function
+function encryptMessage(message) {
+  return CryptoJS.AES.encrypt(message, SECRET_KEY).toString();
 }
 
-export async function deleteMessage(req,res) {
-    try {
-        const {_id}=req.params;
-        const senderId=req.user;
-        const msg=await messageSchema.findOne({_id,senderId});
-        
-        if(!msg)
-           return res.status(404).send({msg:"Cannot delete others message"});
-        const deletemessage=await messageSchema.deleteOne({$and:[{_id},{senderId}]})
-        return res.status(201).send({msg:"Success"});
-    } catch (error) {
-        return res.status(404).send({msg:"Error"})
-    }
+// Decrypt function
+function decryptMessage(encryptedMessage) {
+  const bytes = CryptoJS.AES.decrypt(encryptedMessage, SECRET_KEY);
+  return bytes.toString(CryptoJS.enc.Utf8);
 }
 
+export async function addMessage(req, res) {
+  try {
+      const { rid } = req.params;
+      const sid = req.user;
+      let { message, date, time } = req.body;
+
+      // Encrypt the message before storing it
+      const encryptedMessage = encryptMessage(message);
+
+      // Check if chat members exist
+      const chatmember = await chatMemberSchema.findOne({ senderId: sid, receiverId: rid });
+      if (!chatmember) {
+          await chatMemberSchema.create({ senderId: sid, receiverId: rid });
+      }
+
+      // Save encrypted message
+      await messageSchema.create({
+          senderId: sid,
+          receiverId: rid,
+          message: encryptedMessage,
+          date,
+          time
+      });
+
+      return res.status(201).send({ msg: "success" });
+  } catch (error) {
+      console.error(error);
+      return res.status(500).send({ msg: "error" });
+  }
+}
+
+export async function deleteMessage(req, res) {
+  try {
+      const { _id } = req.params;
+      const senderId = req.user;
+
+      const msg = await messageSchema.findOne({ _id, senderId });
+
+      if (!msg) {
+          return res.status(404).send({ msg: "Cannot delete others' message" });
+      }
+
+      await messageSchema.deleteOne({ _id, senderId });
+
+      return res.status(200).send({ msg: "Success" });
+  } catch (error) {
+      console.error(error);
+      return res.status(500).send({ msg: "Error" });
+  }
+}
+
+// Function to get messages with decryption
+export async function getMessages(req, res) {
+  try {
+      const { rid } = req.params;
+      const sid = req.user;
+
+      const messages = await messageSchema.find({ 
+          $or: [{ senderId: sid, receiverId: rid }, { senderId: rid, receiverId: sid }]
+      });
+
+      // Decrypt messages before sending them
+      const decryptedMessages = messages.map(msg => ({
+          ...msg._doc,
+          message: decryptMessage(msg.message)
+      }));
+
+      return res.status(200).send(decryptedMessages);
+  } catch (error) {
+      console.error(error);
+      return res.status(500).send({ msg: "Error" });
+  }
+}
