@@ -17,35 +17,6 @@ const Message = ({ setUser }) => {
   const [deleteMenuMessageId, setDeleteMenuMessageId] = useState(null);
   const token = localStorage.getItem("Token");
   const { _id } = useParams();
-
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     fetchContacts();
-  //   }, 1000);
-
-  //   return () => clearInterval(interval);
-  // }, []);
-
-  // const fetchContacts = async () => {
-  //   if (token) {
-  //     try {
-  //       const res = await axios.get(`${Api()}/getcontact/${_id}`, {
-  //         headers: { authorization: `Bearer ${token}` },
-  //       });
-  //       setMessages(res.data.chats);
-  //       setUid(res.data.uid);
-  //       setReceiver(res.data.receiver);
-  //       setSender(res.data.sender);
-  //       setUser(res.data.sender.username);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   } else {
-  //     navigate("/signin");
-  //   }
-  // };
-
-
   useEffect(() => {
     const interval = setInterval(() => {
       fetchContacts();
@@ -195,21 +166,14 @@ const Message = ({ setUser }) => {
               <p>{msg.message}</p>
               <p className="time">{msg.time}</p>
 
-              {/* Sent/Delivered ticks */}
-              {/* <div className="status">
-                {msg.status === 'sent' && <FaCheck size={12} className="tick sent" />}
-                {msg.status === 'delivered' && <FaCheckDouble size={12} className="tick delivered" />}
-              </div> */}
-
-<div className="status">
-  {msg.status === "sent" && <FaCheck size={12} className="tick sent" />}
-  {msg.status === "delivered" && (
-    <FaCheckDouble size={12} className="tick delivered" style={{ color: "blue" }} />
-  )}
-</div>
-
-
-              {msg.senderId === uid && (
+            
+      <div className="status">
+        {msg.status === "sent" && <FaCheck size={12} className="tick sent" />}
+        {msg.status === "delivered" && (
+          <FaCheckDouble size={12} className="tick delivered" style={{ color: "blue" }} />
+        )}
+      </div>
+      {msg.senderId === uid && (
                 <div className="delete-btn">
                   <button onClick={() => toggleDeleteMenu(msg._id)}>
                     <FaEllipsisV size={15} />

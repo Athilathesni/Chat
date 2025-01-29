@@ -100,22 +100,6 @@ const Email = () => {
                   </div>
                   {errors.email && <p className="email-error">{errors.email}</p>}
                 </div>
-
-                {/* <div className="email-select-container">
-                  <label htmlFor="type">Type</label>
-                  <select
-                    id="type"
-                    name="type"
-                    value={type}
-                    onChange={handleChangeType}
-                    className="email-select"
-                    required
-                  >
-                    <option value="signup">Sign Up</option>
-                    <option value="forgot-password">Forgot Password</option>
-                  </select>
-                </div> */}
-
                 <div className="email-submit-container">
                   <button
                     type="submit"
