@@ -101,7 +101,7 @@ const Email = () => {
                   {errors.email && <p className="email-error">{errors.email}</p>}
                 </div>
 
-                <div className="email-select-container">
+                {/* <div className="email-select-container">
                   <label htmlFor="type">Type</label>
                   <select
                     id="type"
@@ -114,7 +114,7 @@ const Email = () => {
                     <option value="signup">Sign Up</option>
                     <option value="forgot-password">Forgot Password</option>
                   </select>
-                </div>
+                </div> */}
 
                 <div className="email-submit-container">
                   <button
