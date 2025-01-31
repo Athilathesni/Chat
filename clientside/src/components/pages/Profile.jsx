@@ -5,7 +5,7 @@ import { useNavigate, Link, useParams } from "react-router-dom";
 import '../css/profile.css'; // Import the CSS file
 
 const Profile = ({ setUser }) => {
-  const token = localStorage.getItem("Token");
+  const token = localStorage.getItem("token");
   const { _id } = useParams();
   const [receiver, setReceiver] = useState({});
   const navigate = useNavigate(); // Add navigate to handle redirect

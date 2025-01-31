@@ -9,7 +9,7 @@ import { FaSearch, FaUser, FaSignOutAlt, FaComments, FaPlusCircle } from "react-
 
 const Home = ({ setUser }) => {
   const navigate = useNavigate();
-  const token = localStorage.getItem('Token');
+  const token = localStorage.getItem('token');
   const [chatMembers, setChatMembers] = useState([]);
   const [currentPage, setCurrentPage] = useState("chats");
   const [isEditing, setIsEditing] = useState(false);

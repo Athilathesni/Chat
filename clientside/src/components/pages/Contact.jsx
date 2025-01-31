@@ -6,7 +6,7 @@ import '../css/contact.css';
 
 const Contacts = ({ setUser }) => {
   const navigate = useNavigate();
-  const token = localStorage.getItem("Token");
+  const token = localStorage.getItem("token");
   const [contacts, setContacts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -25,7 +25,7 @@ const Contacts = ({ setUser }) => {
       } catch (error) {
         console.error(error);
         if (error.response && error.response.status === 401) {
-          localStorage.removeItem("Token");
+          localStorage.removeItem("token");
           navigate("/signin");
         }
       }

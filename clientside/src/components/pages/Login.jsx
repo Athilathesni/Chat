@@ -21,7 +21,7 @@ const Login = () => {
     try {
       const res = await axios.post(`${Api()}/signin`, userData);
       if (res.status === 200) {
-        localStorage.setItem("Token", res.data.token);
+        localStorage.setItem("token", res.data.token);
         toast.success(`🎉 ${res.data.msg}!`, {
           position: "bottom-center",
           autoClose: 3000,
